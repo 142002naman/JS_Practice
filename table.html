@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container my-5">
+      <h1>Student Information Form</h1>
+      <form id="student-form" class="form-horizontal">
+        <div class="form-group">
+          <label for="studentId">Student ID:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="studentId"
+            name="studentId"
+            pattern="^[0-9]+$"
+            title="Please enter a valid Student ID"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            pattern="^[a-zA-Z]+$"
+            title="Please enter a valid name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            name="phoneNumber"
+            pattern="^(\+91[\-\s]?)?[789]\d{9}$"
+            title="Please enter a valid phone number"
+            required
+          />
+        </div>
+        <button type="submit" onclick="form1()" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <table class="table container">
+        <thead>
+          <tr>
+            <th>SID</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody id="data">
+          <tr>
+            <td>1</td>
+            <td>John Doe</td>
+            <td>123-456-7890</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jane Smith</td>
+            <td>234-567-8901</td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+  </body>
+  <script>
+    function form1() {
+        var sid=document.getElementById("studentId");
+        var sname=document.getElementById("name");
+        var phone=document.getElementById("phoneNumber");
+
+        var data1=document.getElementById("data");
+        var newElement=document.createElement("tr");
+        // newElement.setAttribute("id","")
+        var newElement1=document.createElement("td");
+        var newElement2=document.createElement("td");
+        var newElement3=document.createElement("td");
+        // console.log(sid.value)
+        newElement1.textContent=sid.value;
+        newElement2.textContent=sname.value;
+        newElement3.textContent=phone.value;
+        data1.appendChild(newElement);
+        newElement.appendChild(newElement1);
+        newElement.appendChild(newElement2);
+        newElement.appendChild(newElement3);
+    }
+  </script>
+</html>
